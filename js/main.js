@@ -204,3 +204,78 @@ if (document.querySelector("#cart-items")) {
 }
 
 
+// Dummy products (You can replace with real data or API later)
+const products = [
+  {
+    id: 1,
+    name: "Cool T-Shirt",
+    price: 29.99,
+    image: "assets/product1.jpg"
+  },
+  {
+    id: 2,
+    name: "Blue Jeans",
+    price: 59.99,
+    image: "assets/product2.jpg"
+  },
+  {
+    id: 3,
+    name: "Sneakers",
+    price: 79.99,
+    image: "assets/product3.jpg"
+  },
+  {
+    id: 4,
+    name: "Smart Watch",
+    price: 199.99,
+    image: "assets/product4.jpg"
+  }
+];
+
+// Render products on index.html
+function displayProducts() {
+  const productList = document.getElementById("product-list");
+  if (!productList) return;
+
+  productList.innerHTML = products.map(product => `
+    <div class="product-card">
+      <img src="${product.image}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p>$${product.price.toFixed(2)}</p>
+      <button onclick="addToCart(${product.id})">Add to Cart</button>
+    </div>
+  `).join('');
+}
+
+// Add product to cart (using localStorage)
+function addToCart(productId) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existing = cart.find(item => item.id === productId);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    const product = products.find(p => p.id === productId);
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  alert("Item added to cart!");
+}
+
+// Update cart count in header
+function updateCartCount() {
+  const cartCount = document.getElementById("cart-count");
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+  if (cartCount) cartCount.textContent = totalCount;
+}
+
+// Call display on load (only on index)
+if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+  displayProducts();
+  updateCartCount();
+}
+
+
