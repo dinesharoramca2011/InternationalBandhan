@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InternationalBandhan</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌍 InternationalBandhan</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="cart.html">Cart</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- 🔄 Carousel Section -->
+  <section class="carousel" id="carousel">
+    <div class="carousel-item active"><img src="assets/banner1.jpg" alt="Banner 1"></div>
+    <div class="carousel-item"><img src="assets/banner2.jpg" alt="Banner 2"></div>
+    <div class="carousel-item"><img src="assets/banner3.jpg" alt="Banner 3"></div>
+    <button class="carousel-control prev" onclick="prevSlide()">❮</button>
+    <button class="carousel-control next" onclick="nextSlide()">❯</button>
+  </section>
+
+  <!-- 🧰 Toggle Features Section -->
+  <section>
+    <button onclick="toggleFeatures()">Toggle Features</button>
+    <div id="featuresSection">
+      <ul>
+        <li>Send Rakhis globally 🌎</li>
+        <li>Combo deals with sweets 🍬</li>
+        <li>Secure payment options 🔐</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 🪷 Rakhi & Combo Tiles -->
+  <section class="tiles">
+    <h2>Choose Your Rakhi or Combo</h2>
+    <div class="tile-grid">
+      <div class="tile">
+        <a href="details.html?item=rakhi1">
+          <img src="assets/rakhi1.jpg" alt="Rakhi 1">
+          <h3>Elegant Rakhi</h3>
+        </a>
+      </div>
+      <div class="tile">
+        <a href="details.html?item=combo1">
+          <img src="assets/combo1.jpg" alt="Combo 1">
+          <h3>Rakhi with Kaju Katli</h3>
+        </a>
+      </div>
+      <div class="tile">
+        <a href="details.html?item=combo2">
+          <img src="assets/combo2.jpg" alt="Combo 2">
+          <h3>Rakhi + Dry Fruits</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 InternationalBandhan. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
