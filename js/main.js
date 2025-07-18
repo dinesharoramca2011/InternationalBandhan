@@ -76,3 +76,46 @@ document.querySelectorAll('.tile a').forEach(link => {
   });
 });
 
+// === Detail Page Quantity & Add to Cart ===
+
+// Ensure DOM has loaded before attaching events
+document.addEventListener('DOMContentLoaded', function () {
+  const qtyInput = document.getElementById('quantity');
+  const increaseBtn = document.getElementById('increase');
+  const decreaseBtn = document.getElementById('decrease');
+  const addToCartBtn = document.getElementById('addToCart');
+
+  if (qtyInput && increaseBtn && decreaseBtn && addToCartBtn) {
+    increaseBtn.addEventListener('click', () => {
+      qtyInput.value = parseInt(qtyInput.value) + 1;
+    });
+
+    decreaseBtn.addEventListener('click', () => {
+      if (parseInt(qtyInput.value) > 1) {
+        qtyInput.value = parseInt(qtyInput.value) - 1;
+      }
+    });
+
+    addToCartBtn.addEventListener('click', () => {
+      const product = {
+        id: 'rakhi1',
+        name: 'Designer Rakhi Combo',
+        price: 9.99,
+        qty: parseInt(qtyInput.value),
+        image: 'assets/rakhi1.jpg'
+      };
+
+      // Store in localStorage
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existing = cart.find(item => item.id === product.id);
+      if (existing) {
+        existing.qty += product.qty;
+      } else {
+        cart.push(product);
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('Added to cart!');
+    });
+  }
+});
+
