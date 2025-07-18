@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - InternationalBandhan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Checkout</h1>
+    <nav><a href="index.html">Home</a> | <a href="cart.html">Cart</a></nav>
+  </header>
+
+  <main class="checkout-container">
+    <section class="address-section">
+      <h2>Sender's Address</h2>
+      <form id="checkoutForm">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" name="fromName" required>
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <textarea name="fromAddress" required></textarea>
+        </div>
+        <div class="form-row">
+          <input type="text" name="fromCity" placeholder="City" required>
+          <input type="text" name="fromState" placeholder="State" required>
+        </div>
+        <div class="form-row">
+          <input type="text" name="fromPincode" placeholder="Pincode" required>
+          <input type="text" name="fromCountry" placeholder="Country" required>
+        </div>
+        <div class="form-group">
+          <label>Contact Number</label>
+          <input type="tel" name="fromPhone" required>
+        </div>
+      </form>
+
+      <h2>Receiver's Address</h2>
+      <form>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" name="toName" required>
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <textarea name="toAddress" required></textarea>
+        </div>
+        <div class="form-row">
+          <input type="text" name="toCity" placeholder="City" required>
+          <input type="text" name="toState" placeholder="State" required>
+        </div>
+        <div class="form-row">
+          <input type="text" name="toPincode" placeholder="Pincode" required>
+          <input type="text" name="toCountry" placeholder="Country" required>
+        </div>
+        <div class="form-group">
+          <label>Contact Number</label>
+          <input type="tel" name="toPhone" required>
+        </div>
+      </form>
+    </section>
+
+    <section class="payment-section">
+      <h2>Select Payment Method</h2>
+      <div id="paymentMethods">
+        <!-- Dynamically populated by JS -->
+      </div>
+    </section>
+
+    <button onclick="placeOrder()">Place Order</button>
+  </main>
+
+  <footer>
+    <p>© 2025 InternationalBandhan. All rights reserved.</p>
+  </footer>
+
+  <script src="checkout.js"></script>
+</body>
+</html>
