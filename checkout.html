@@ -2,81 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Checkout - InternationalBandhan</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header>
-    <h1>Checkout</h1>
-    <nav><a href="index.html">Home</a> | <a href="cart.html">Cart</a></nav>
+    <h1>Checkout - InternationalBandhan</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="cart.html">Cart</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
   </header>
 
-  <main class="checkout-container">
-    <section class="address-section">
-      <h2>Sender's Address</h2>
-      <form id="checkoutForm">
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" name="fromName" required>
-        </div>
-        <div class="form-group">
-          <label>Address</label>
-          <textarea name="fromAddress" required></textarea>
-        </div>
-        <div class="form-row">
-          <input type="text" name="fromCity" placeholder="City" required>
-          <input type="text" name="fromState" placeholder="State" required>
-        </div>
-        <div class="form-row">
-          <input type="text" name="fromPincode" placeholder="Pincode" required>
-          <input type="text" name="fromCountry" placeholder="Country" required>
-        </div>
-        <div class="form-group">
-          <label>Contact Number</label>
-          <input type="tel" name="fromPhone" required>
-        </div>
-      </form>
+  <main>
+    <section class="checkout-section">
+      <h2>Shipping & Payment Details</h2>
+      <form id="checkout-form">
+        <fieldset>
+          <legend>From Address</legend>
+          <label for="fromName">Name:</label>
+          <input type="text" id="fromName" name="fromName" required />
+          
+          <label for="fromEmail">Email:</label>
+          <input type="email" id="fromEmail" name="fromEmail" required />
+          
+          <label for="fromPhone">Phone:</label>
+          <input type="tel" id="fromPhone" name="fromPhone" required />
+          
+          <label for="fromAddress">Address:</label>
+          <textarea id="fromAddress" name="fromAddress" required></textarea>
+          
+          <label for="fromCity">City:</label>
+          <input type="text" id="fromCity" name="fromCity" required />
+          
+          <label for="fromState">State:</label>
+          <input type="text" id="fromState" name="fromState" required />
+          
+          <label for="fromZip">Pincode:</label>
+          <input type="text" id="fromZip" name="fromZip" required />
+          
+          <label for="fromCountry">Country:</label>
+          <input type="text" id="fromCountry" name="fromCountry" required />
+        </fieldset>
 
-      <h2>Receiver's Address</h2>
-      <form>
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" name="toName" required>
-        </div>
-        <div class="form-group">
-          <label>Address</label>
-          <textarea name="toAddress" required></textarea>
-        </div>
-        <div class="form-row">
-          <input type="text" name="toCity" placeholder="City" required>
-          <input type="text" name="toState" placeholder="State" required>
-        </div>
-        <div class="form-row">
-          <input type="text" name="toPincode" placeholder="Pincode" required>
-          <input type="text" name="toCountry" placeholder="Country" required>
-        </div>
-        <div class="form-group">
-          <label>Contact Number</label>
-          <input type="tel" name="toPhone" required>
-        </div>
-      </form>
-    </section>
+        <fieldset>
+          <legend>To Address</legend>
+          <label for="toName">Name:</label>
+          <input type="text" id="toName" name="toName" required />
+          
+          <label for="toEmail">Email:</label>
+          <input type="email" id="toEmail" name="toEmail" required />
+          
+          <label for="toPhone">Phone:</label>
+          <input type="tel" id="toPhone" name="toPhone" required />
+          
+          <label for="toAddress">Address:</label>
+          <textarea id="toAddress" name="toAddress" required></textarea>
+          
+          <label for="toCity">City:</label>
+          <input type="text" id="toCity" name="toCity" required />
+          
+          <label for="toState">State:</label>
+          <input type="text" id="toState" name="toState" required />
+          
+          <label for="toZip">Pincode:</label>
+          <input type="text" id="toZip" name="toZip" required />
+          
+          <label for="toCountry">Country:</label>
+          <input type="text" id="toCountry" name="toCountry" required />
+        </fieldset>
 
-    <section class="payment-section">
-      <h2>Select Payment Method</h2>
-      <div id="paymentMethods">
-        <!-- Dynamically populated by JS -->
-      </div>
-    </section>
-
-    <button onclick="placeOrder()">Place Order</button>
-  </main>
-
-  <footer>
-    <p>© 2025 InternationalBandhan. All rights reserved.</p>
-  </footer>
-
-  <script src="checkout.js"></script>
-</body>
-</html>
+        <fieldset>
+          <legend>Discount Code</legend>
+          <input type="text" id="discountCode" name="discountCode" placeholder="Enter discount code" />
+          <button type="but
