@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details - International Bandhan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>International Bandhan</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="cart.html">Cart</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="detail-container">
+    <div class="product-image">
+      <img src="assets/rakhi1.jpg" alt="Designer Rakhi" />
+    </div>
+    <div class="product-info">
+      <h2>Designer Rakhi Combo</h2>
+      <p class="price">$9.99</p>
+      <p>A premium rakhi combo with roli, chawal, and greeting card included.</p>
+
+      <div class="quantity-selector">
+        <button id="decrease">−</button>
+        <input type="text" id="quantity" value="1" readonly />
+        <button id="increase">+</button>
+      </div>
+
+      <button class="add-to-cart" id="addToCart">Add to Cart</button>
+    </div>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
