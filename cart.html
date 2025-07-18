@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart | InternationalBandhan</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>🛒 Your Cart</h1>
+    <a href="index.html">← Back to Home</a>
+  </header>
+
+  <main class="cart-container">
+
+    <section id="cart-items">
+      <!-- Cart item template -->
+      <!-- These will be populated via JS -->
+    </section>
+
+    <div class="cart-summary">
+      <div class="discount-section">
+        <label for="discount-code">Apply Discount Code:</label>
+        <input type="text" id="discount-code" placeholder="Enter code" />
+        <button id="apply-discount">Apply</button>
+      </div>
+
+      <div class="totals">
+        <p><strong>Subtotal:</strong> ₹<span id="subtotal">0</span></p>
+        <p><strong>Discount:</strong> - ₹<span id="discount">0</span></p>
+        <p><strong>Total:</strong> ₹<span id="total">0</span></p>
+      </div>
+
+      <button id="checkout-btn">Proceed to Checkout</button>
+    </div>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
