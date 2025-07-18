@@ -1,205 +1,211 @@
-/* Reset and Base */
+/* ===== Reset styles ===== */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box; /* Includes padding and border in element's total width/height */
+  margin: 0;              /* Remove default margin */
+  padding: 0;             /* Remove default padding */
 }
 
+/* ===== Body & Base Styling ===== */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean readable font */
+  background-color: #f9f9f9;  /* Light gray background */
+  color: #333;                /* Dark gray text */
+  line-height: 1.6;           /* Comfortable line spacing */
+  min-height: 100vh;          /* Ensure body takes full viewport height */
+  display: flex;              /* Flex container to push footer down */
+  flex-direction: column;     /* Stack children vertically */
 }
 
-/* Header */
+/* ===== Header Styling ===== */
 header {
-  background-color: #005a87;
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  background-color: #005a87;  /* Dark blue background */
+  color: white;               /* White text */
+  padding: 1rem 2rem;         /* Vertical + horizontal padding */
+  display: flex;              /* Flexbox for layout */
+  align-items: center;        /* Vertically center items */
+  justify-content: space-between; /* Space between logo and nav */
+  flex-wrap: wrap;            /* Wrap nav on smaller screens */
 }
 
 header h1 {
-  font-size: 1.8rem;
+  font-size: 1.8rem;          /* Large site title */
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 1.5rem;
-  font-weight: 600;
-  transition: color 0.3s ease;
+  color: white;               /* White links */
+  text-decoration: none;      /* Remove underline */
+  margin-left: 1.5rem;        /* Spacing between links */
+  font-weight: 600;           /* Semi-bold */
+  transition: color 0.3s ease; /* Smooth hover color change */
 }
 
 nav a:hover {
-  color: #ffd700;
+  color: #ffd700;             /* Gold color on hover */
 }
 
-/* Carousel */
+/* ===== Carousel Container ===== */
 .carousel {
-  position: relative;
-  max-width: 900px;
-  margin: 1.5rem auto;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
-  background-color: white;
+  position: relative;         /* For absolute controls positioning */
+  max-width: 900px;           /* Max width to center */
+  margin: 1.5rem auto;        /* Vertical spacing + center horizontally */
+  overflow: hidden;           /* Hide overflowing slides */
+  border-radius: 8px;         /* Rounded corners */
+  box-shadow: 0 0 12px rgba(0,0,0,0.1); /* Subtle shadow */
+  background-color: white;    /* White background behind images */
 }
 
+/* ===== Individual Carousel Items ===== */
 .carousel-item {
-  display: none;
+  display: none;              /* Hide by default */
 }
 
 .carousel-item.active {
-  display: block;
+  display: block;             /* Show active slide */
 }
 
 .carousel-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
+  width: 100%;                /* Full width image */
+  height: auto;               /* Maintain aspect ratio */
+  display: block;             /* Remove inline spacing */
+  border-radius: 8px;         /* Match container rounded corners */
 }
 
+/* ===== Carousel Navigation Buttons ===== */
 .carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.4);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 0 12px;
-  cursor: pointer;
-  border-radius: 3px;
-  user-select: none;
-  transition: background-color 0.3s ease;
-  z-index: 10;
+  position: absolute;         /* Positioned over carousel */
+  top: 50%;                  /* Vertically centered */
+  transform: translateY(-50%); /* Correct centering */
+  background-color: rgba(0,0,0,0.4); /* Semi-transparent dark bg */
+  border: none;               /* No border */
+  color: white;               /* White arrows */
+  font-size: 2rem;            /* Large arrow size */
+  padding: 0 12px;            /* Horizontal padding */
+  cursor: pointer;            /* Pointer on hover */
+  border-radius: 3px;         /* Rounded corners */
+  user-select: none;          /* Prevent text selection */
+  transition: background-color 0.3s ease; /* Smooth hover */
+  z-index: 10;                /* Above carousel images */
 }
 
 .carousel-control:hover {
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.7); /* Darker bg on hover */
 }
 
 .carousel-control.prev {
-  left: 10px;
+  left: 10px;                /* Left side */
 }
 
 .carousel-control.next {
-  right: 10px;
+  right: 10px;               /* Right side */
 }
 
-/* Toggle Features */
+/* ===== Toggle Features Button ===== */
 section > button {
-  display: block;
-  margin: 2rem auto 1rem;
-  padding: 0.7rem 1.4rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 25px;
-  background-color: #0077b6;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  display: block;             /* Block level for centering */
+  margin: 2rem auto 1rem;     /* Vertical margins and center horizontally */
+  padding: 0.7rem 1.4rem;     /* Comfortable padding */
+  font-size: 1rem;            /* Readable font size */
+  border: none;               /* No border */
+  border-radius: 25px;        /* Rounded pill shape */
+  background-color: #0077b6; /* Bright blue */
+  color: white;               /* White text */
+  cursor: pointer;            /* Pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth color change */
 }
 
 section > button:hover {
-  background-color: #023e8a;
+  background-color: #023e8a;  /* Darker blue on hover */
 }
 
+/* ===== Features Section ===== */
 #featuresSection {
-  max-width: 600px;
-  margin: 0 auto 3rem;
-  padding: 1rem 2rem;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  display: block;
+  max-width: 600px;           /* Limit width */
+  margin: 0 auto 3rem;        /* Center + spacing below */
+  padding: 1rem 2rem;         /* Internal spacing */
+  background-color: white;    /* White bg */
+  border-radius: 8px;         /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Soft shadow */
+  display: block;             /* Visible by default */
 }
 
 #featuresSection ul {
-  list-style: disc inside;
-  font-size: 1.1rem;
-  color: #0077b6;
+  list-style: disc inside;    /* Bullet points inside */
+  font-size: 1.1rem;          /* Slightly bigger text */
+  color: #0077b6;             /* Blue text */
 }
 
-/* Tiles Section */
+/* ===== Tiles Section ===== */
 .tiles {
-  max-width: 960px;
-  margin: 0 auto 3rem;
-  padding: 0 1rem;
+  max-width: 960px;           /* Limit width */
+  margin: 0 auto 3rem;        /* Center + bottom spacing */
+  padding: 0 1rem;            /* Horizontal padding */
 }
 
 .tiles h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #023e8a;
+  text-align: center;         /* Center heading */
+  margin-bottom: 1.5rem;      /* Spacing below */
+  color: #023e8a;             /* Dark blue */
 }
 
+/* Tile Grid Layout */
 .tile-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  display: grid;              /* CSS grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Responsive columns */
+  gap: 1.5rem;                /* Space between tiles */
 }
 
+/* Individual Tile Styling */
 .tile {
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: box-shadow 0.3s ease;
+  background-color: white;    /* White bg */
+  border-radius: 8px;         /* Rounded corners */
+  overflow: hidden;           /* Clip overflow */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Light shadow */
+  transition: box-shadow 0.3s ease; /* Smooth shadow change */
 }
 
 .tile:hover {
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* Stronger shadow on hover */
 }
 
 .tile a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  height: 100%;
+  text-decoration: none;      /* Remove underline */
+  color: inherit;             /* Inherit text color */
+  display: block;             /* Make whole tile clickable */
+  height: 100%;               /* Full height */
 }
 
 .tile img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  display: block;
+  width: 100%;                /* Full tile width */
+  height: 260px;              /* Fixed height */
+  object-fit: cover;          /* Crop images nicely */
+  display: block;             /* Remove inline gap */
 }
 
 .tile h3 {
-  padding: 1rem;
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-align: center;
+  padding: 1rem;              /* Space around text */
+  font-weight: 700;           /* Bold */
+  font-size: 1.2rem;          /* Bigger text */
+  text-align: center;         /* Center text */
 }
 
-/* Footer */
+/* ===== Footer Styling ===== */
 footer {
-  background-color: #023e8a;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-  margin-top: auto;
-  font-size: 0.9rem;
+  background-color: #023e8a;  /* Dark blue */
+  color: white;               /* White text */
+  text-align: center;         /* Center content */
+  padding: 1rem 0;            /* Vertical padding */
+  margin-top: auto;           /* Push footer to bottom */
+  font-size: 0.9rem;          /* Slightly smaller text */
 }
 
-/* Responsive */
+/* ===== Responsive Styles ===== */
 @media (max-width: 600px) {
   nav a {
-    margin-left: 0.8rem;
-    font-size: 0.9rem;
+    margin-left: 0.8rem;      /* Less spacing between links */
+    font-size: 0.9rem;        /* Smaller font on small screens */
   }
 
   .tile img {
-    height: 180px;
+    height: 180px;            /* Smaller tile images */
   }
 }
