@@ -2,41 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cart | InternationalBandhan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shopping Cart - InternationalBandhan</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
   <header>
-    <h1>🛒 Your Cart</h1>
-    <a href="index.html">← Back to Home</a>
+    <h1>🛒 Your Cart - InternationalBandhan</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="cart.html">Cart</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
   </header>
 
-  <main class="cart-container">
+  <main>
+    <section class="cart-section">
+      <h2>Your Selected Items</h2>
+      <table id="cart-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price (each)</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- Cart items will be injected here by JS -->
+        </tbody>
+      </table>
 
-    <section id="cart-items">
-      <!-- Cart item template -->
-      <!-- These will be populated via JS -->
+      <div class="cart-summary">
+        <strong>Total: $<span id="cart-total">0.00</span></strong>
+      </div>
+
+      <button id="checkout-btn" disabled>Proceed to Checkout</button>
     </section>
-
-    <div class="cart-summary">
-      <div class="discount-section">
-        <label for="discount-code">Apply Discount Code:</label>
-        <input type="text" id="discount-code" placeholder="Enter code" />
-        <button id="apply-discount">Apply</button>
-      </div>
-
-      <div class="totals">
-        <p><strong>Subtotal:</strong> ₹<span id="subtotal">0</span></p>
-        <p><strong>Discount:</strong> - ₹<span id="discount">0</span></p>
-        <p><strong>Total:</strong> ₹<span id="total">0</span></p>
-      </div>
-
-      <button id="checkout-btn">Proceed to Checkout</button>
-    </div>
-
   </main>
+
+  <footer>
+    <p>&copy; 2025 InternationalBandhan</p>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>
