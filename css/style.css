@@ -1,0 +1,205 @@
+/* Reset and Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: #005a87;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffd700;
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 1.5rem auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  background-color: white;
+}
+
+.carousel-item {
+  display: none;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.4);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0 12px;
+  cursor: pointer;
+  border-radius: 3px;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.carousel-control:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+/* Toggle Features */
+section > button {
+  display: block;
+  margin: 2rem auto 1rem;
+  padding: 0.7rem 1.4rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #0077b6;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+section > button:hover {
+  background-color: #023e8a;
+}
+
+#featuresSection {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: block;
+}
+
+#featuresSection ul {
+  list-style: disc inside;
+  font-size: 1.1rem;
+  color: #0077b6;
+}
+
+/* Tiles Section */
+.tiles {
+  max-width: 960px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+
+.tiles h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #023e8a;
+}
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.tile {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.tile:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.tile a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.tile img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.tile h3 {
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background-color: #023e8a;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav a {
+    margin-left: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .tile img {
+    height: 180px;
+  }
+}
