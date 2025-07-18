@@ -279,3 +279,102 @@ if (window.location.pathname.includes("index.html") || window.location.pathname 
 }
 
 
+// CART PAGE FUNCTIONALITY
+
+// Helper: Format price to 2 decimals
+function formatPrice(num) {
+  return num.toFixed(2);
+}
+
+// Load cart from localStorage or empty array
+function loadCart() {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+// Save cart to localStorage
+function saveCart(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Render cart items in table
+function renderCart() {
+  const cartItemsContainer = document.getElementById("cart-items");
+  const cartTotalElem = document.getElementById("cart-total");
+  const checkoutBtn = document.getElementById("checkout-btn");
+  
+  if (!cartItemsContainer) return; // Only run on cart page
+
+  let cart = loadCart();
+  cartItemsContainer.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = `<tr><td colspan="5" style="text-align:center;">Your cart is empty.</td></tr>`;
+    cartTotalElem.textContent = "0.00";
+    checkoutBtn.disabled = true;
+    return;
+  }
+
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    const subtotal = item.price * item.quantity;
+    total += subtotal;
+
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>
+        <img src="${item.image}" alt="${item.name}" style="width:50px; height:auto; vertical-align:middle; margin-right:10px;">
+        ${item.name}
+      </td>
+      <td>$${formatPrice(item.price)}</td>
+      <td>
+        <button onclick="changeQuantity(${index}, -1)">-</button>
+        <span>${item.quantity}</span>
+        <button onclick="changeQuantity(${index}, 1)">+</button>
+      </td>
+      <td>$${formatPrice(subtotal)}</td>
+      <td><button onclick="removeItem(${index})">Remove</button></td>
+    `;
+    cartItemsContainer.appendChild(row);
+  });
+
+  cartTotalElem.textContent = formatPrice(total);
+  checkoutBtn.disabled = false;
+}
+
+// Change quantity of item by delta (+1 or -1)
+function changeQuantity(index, delta) {
+  let cart = loadCart();
+  if (!cart[index]) return;
+
+  cart[index].quantity += delta;
+  if (cart[index].quantity < 1) cart[index].quantity = 1;
+
+  saveCart(cart);
+  renderCart();
+}
+
+// Remove item from cart
+function removeItem(index) {
+  let cart = loadCart();
+  if (!cart[index]) return;
+
+  cart.splice(index, 1);
+
+  saveCart(cart);
+  renderCart();
+}
+
+// Proceed to checkout button click handler
+document.addEventListener("DOMContentLoaded", () => {
+  renderCart();
+
+  const checkoutBtn = document.getElementById("checkout-btn");
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", () => {
+      window.location.href = "checkout.html";
+    });
+  }
+});
+
+
