@@ -119,3 +119,88 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+// ---------- CART LOGIC FOR cart.html ----------
+
+// Dummy cart data
+const cartItems = [
+  {
+    id: 1,
+    name: "Rakhi Combo",
+    price: 499,
+    quantity: 2,
+    image: "assets/rakhi1.jpg"
+  },
+  {
+    id: 2,
+    name: "Traditional Rakhi",
+    price: 299,
+    quantity: 1,
+    image: "assets/rakhi2.jpg"
+  }
+];
+
+let discountValue = 0;
+
+// Render cart items
+function renderCart() {
+  const cartContainer = document.getElementById('cart-items');
+  cartContainer.innerHTML = "";
+
+  cartItems.forEach((item, index) => {
+    const itemDiv = document.createElement('div');
+    itemDiv.className = "cart-item";
+    itemDiv.innerHTML = `
+      <img src="${item.image}" alt="${item.name}" />
+      <div class="cart-details">
+        <h3>${item.name}</h3>
+        <p>Price: ₹${item.price}</p>
+        <div class="quantity">
+          <button onclick="updateQuantity(${index}, -1)">-</button>
+          <span>${item.quantity}</span>
+          <button onclick="updateQuantity(${index}, 1)">+</button>
+        </div>
+        <p>Total: ₹${item.price * item.quantity}</p>
+      </div>
+    `;
+    cartContainer.appendChild(itemDiv);
+  });
+
+  updateTotals();
+}
+
+// Update quantity
+function updateQuantity(index, change) {
+  cartItems[index].quantity += change;
+  if (cartItems[index].quantity < 1) cartItems[index].quantity = 1;
+  renderCart();
+}
+
+// Calculate totals
+function updateTotals() {
+  let subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  let discount = discountValue;
+  let total = subtotal - discount;
+
+  document.getElementById('subtotal').textContent = subtotal;
+  document.getElementById('discount').textContent = discount;
+  document.getElementById('total').textContent = total;
+}
+
+// Apply discount code
+document.getElementById('apply-discount')?.addEventListener('click', () => {
+  const code = document.getElementById('discount-code').value.trim();
+  if (code === "RAKHI10") {
+    discountValue = 100;
+  } else {
+    discountValue = 0;
+    alert("Invalid discount code");
+  }
+  updateTotals();
+});
+
+// Init render if on cart page
+if (document.querySelector("#cart-items")) {
+  renderCart();
+}
+
+
